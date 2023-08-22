@@ -30,12 +30,76 @@ if [ ! -f "$USER_HOME/.local/bin/nvim.appimage" ]; then
 fi
 
 # Add aliases
-echo -e "alias l='ls -la'\n\
-alias srcbash='source ~/.bashrc'\n\
+echo -e "#╭╮╱╱╱╱╱╱╱╭╮╱╱╱╱╭╮\n\
+#┃┃╱╱╱╱╱╱╱┃┃╱╱╱╱┃┃\n\
+#┃╰━┳━━┳━━┫╰━┳━━┫┃╭┳━━┳━━┳━━┳━━╮\n\
+#┃╭╮┃╭╮┃━━┫╭╮┃╭╮┃┃┣┫╭╮┃━━┫┃━┫━━┫\n\
+#┃╰╯┃╭╮┣━━┃┃┃┃╭╮┃╰┫┃╭╮┣━━┃┃━╋━━┃\n\
+#╰━━┻╯╰┻━━┻╯╰┻╯╰┻━┻┻╯╰┻━━┻━━┻━━╯\n\
+#==============================================================================\n\
+# My own add ons for .bashrc\n\
+#==============================================================================\n\
+\n\
+# shell shortcuts -------------------------------------------------------------\n\
+\n\
+# ls aliases\n\
+alias l='ls -alhFv --group-directories'\n\
+alias ll='ls -alF'\n\
+alias la='ls -A'\n\
+\n\
+alias tree='tree -v --filesfirst'\n\
+\n\
+# shell shortcuts\n\
+alias clr='clear && neofetch'\n\
+alias srcbash='source ~/.bashrc && clr'\n\
+alias srcprofile='source ~/.profile'\n\
+alias mount='mount | column -t'\n\
+alias locate='plocate'\n\
+\n\
+#backups\n\
+alias bashrc-backup='cp ~/.bashrc ~/.backup_configs/.bashrc.backup'\n\
+alias bash-a-backup='cp ~/.bash_aliases ~/.backup_configs/.bash_aliases.backup'\n\
+alias profile-backup='cp ~/.profile ~/.backup_configs/.profile.backup'\n\
+\n\
+# abbreviations / most common paths -------------------------------------------\n\
+\n\
+# config shortcuts\n\
+alias cfbash='nvim ~/.bashrc'\n\
+alias cfbash-a='nvim ~/.bash_aliases'\n\
+alias cfnvim='pushd ~/.config/nvim/'\n\
+alias cfbash-s='pushd ~/.local/bin'\n\
+alias cfsnippets='pushd /mnt/c/Users/arnca/AppData/Roaming/Code/User/snippets'\n\
+\n\
+# neovim\n\
 alias nvim='nvim.appimage'\n\
-alias nv='nvim'\n\
-alias cfbash-a='nv ~/.bash_aliases'\n\
-alias clr='clear'" >> $USER_HOME/.bash_aliases
+alias nv='nvim -O'\n\
+\n\
+# cmake \n\
+alias cmakebld='cmake --build .'\n\
+\n\
+# git aliases\n\
+alias stats='git status -s'\n\
+alias add-all='git add *'\n\
+alias diff='git diff'\n\
+alias log='git log'\n\
+\n\
+alias tarInfo='echo \"tar -xvpf filename.tar\"'\n\
+\n\
+# porgrams --------------------------------------------------------------------\n\
+alias obs='flatpak run md.obsidian.Obsidian'\n\
+\n\
+# HTML VIEWING USING FIREFOX --------------------------------------------------\n\
+alias firefox='/mnt/c/'Program Files'/'Mozilla Firefox'/./firefox.exe'\n\
+\n\
+# WINDOWS SPECIFIC ------------------------------------------------------------\n\
+alias windowsInfo='echo 'Ctrl + R Type: msinfo32''\n\
+ \n\
+# mods ------------------------------------------------------------------------\n\
+\n\
+# removes the need for cd command. just need to type in path.\n\
+shopt -s autocd\n\
+#------------------------------------------------------------------------------" >> ~/.bash_aliases
+
 
 # Source profile and bashrc (this may not have an effect when run within the script, but it's kept for completeness)
 source $USER_HOME/.profile
