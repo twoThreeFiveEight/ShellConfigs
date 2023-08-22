@@ -27,6 +27,9 @@ if [ ! -f nvim.appimage ]; then
     chmod u+x nvim.appimage
 fi
 
+cd
+touch .bash_aliases
+
 # Add aliases
 echo -e "alias l='ls -la'\n\
 alias srcbash='source ~/.bashrc'\n\
