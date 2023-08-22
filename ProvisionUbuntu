@@ -47,4 +47,5 @@ mv $USER_HOME/.config/nvim/kickstart.nvim/* $USER_HOME/.config/nvim/
 # Move hidden files/directories, excluding '..'
 find $USER_HOME/.config/nvim/kickstart.nvim -maxdepth 1 ! -name . -a ! -name .. -exec mv {} $USER_HOME/.config/nvim/ \;
 
-$USER_HOME/.local/bin/nvim.appimage
+sudo chown -R $USER:$USER $HOME
+~/.local/bin/nvim.appimage
