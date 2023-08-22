@@ -1,0 +1,48 @@
+#!/bin/bash
+
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run with superuser privileges." 
+   exit 1
+fi
+
+apt update
+apt upgrade -y
+
+# Group the packages for a single installation command
+apt install -y build-essential clangd git curl python3 net-tools
+
+# Create directories if they don't exist
+mkdir -p ~/.config/nvim
+mkdir -p ~/.local/bin
+
+# Clone repository
+cd ~/.config/nvim
+if [ ! -d kickstart.nvim ]; then
+    git clone https://github.com/nvim-lua/kickstart.nvim.git
+fi
+
+cd ~/.local/bin
+if [ ! -f nvim.appimage ]; then
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+    chmod u+x nvim.appimage
+fi
+
+# Add aliases
+echo -e "alias l='ls -la'\n\
+alias srcbash='source ~/.bashrc'\n\
+alias nvim='nvim.appimage'\n\
+alias nv='nvim'\n\
+alias cfbash-a='nv .bash_aliases'\n\
+alias clr='clear'" >> ~/.bash_aliases
+
+source ~/.profile
+source ~/.bashrc
+
+# Move files from kickstart.nvim to parent directory
+cd ~/.config/nvim/kickstart.nvim 
+mv * ../
+# Hidden files/directories start with '.' but we should exclude '..' (parent dir reference)
+find . -maxdepth 1 ! -name . -a ! -name .. -exec mv {} ../ \;
+
+clear
+nvim.appimage
