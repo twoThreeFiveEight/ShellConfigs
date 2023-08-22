@@ -25,8 +25,8 @@ fi
 
 # Download nvim.appimage
 if [ ! -f "$USER_HOME/.local/bin/nvim.appimage" ]; then
-    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o $USER_HOME/.local/bin/nvim.appimage
-    chmod u+x $USER_HOME/.local/bin/nvim.appimage
+    curl -Lo "$USER_HOME/.local/bin/nvim.appimage" https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+    chmod u+x "$USER_HOME/.local/bin/nvim.appimage"
 fi
 
 # Add aliases
