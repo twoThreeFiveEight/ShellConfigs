@@ -32,9 +32,9 @@ fi
 # Add aliases
 echo -e "alias l='ls -la'\n\
 alias srcbash='source ~/.bashrc'\n\
-alias nvim='$USER_HOME/.local/bin/nvim.appimage'\n\
+alias nvim='nvim.appimage'\n\
 alias nv='nvim'\n\
-alias cfbash-a='nv .bash_aliases'\n\
+alias cfbash-a='nv ~/.bash_aliases'\n\
 alias clr='clear'" >> $USER_HOME/.bash_aliases
 
 # Source profile and bashrc (this may not have an effect when run within the script, but it's kept for completeness)
