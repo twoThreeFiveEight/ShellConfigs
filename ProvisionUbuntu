@@ -99,8 +99,8 @@ alias windowsInfo='echo 'Ctrl + R Type: msinfo32''\n\
 # removes the need for cd command. just need to type in path.\n\
 shopt -s autocd\n\
 #------------------------------------------------------------------------------\n\
-if [ -d '$HOME/.local/bin' ] ; then \n\
-   PATH='$HOME/.local/bin:$PATH' \n\
+if [ -d '\$HOME/.local/bin' ] ; then \n\
+   PATH='\$HOME/.local/bin:\$PATH' \n\
 fi " >> ~/.bash_aliases
 
 
