@@ -9,7 +9,7 @@ fi
 # System package updates and installation
 apt update
 apt upgrade -y
-apt install -y build-essential clangd git curl python3 net-tools
+apt install -y build-essential clangd git curl python3 net-tools fuse
 
 # Switch back to the regular user's home directory
 USER_HOME=$(eval echo ~$SUDO_USER)
