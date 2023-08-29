@@ -50,7 +50,7 @@ alias la='ls -A'\n\
 alias tree='tree -v --filesfirst'\n\
 \n\
 # shell shortcuts\n\
-alias clr='clear && neofetch'\n\
+alias clr='clear'\n\
 alias srcbash='source ~/.bashrc && clr'\n\
 alias srcprofile='source ~/.profile'\n\
 alias mount='mount | column -t'\n\
@@ -98,7 +98,10 @@ alias windowsInfo='echo 'Ctrl + R Type: msinfo32''\n\
 \n\
 # removes the need for cd command. just need to type in path.\n\
 shopt -s autocd\n\
-#------------------------------------------------------------------------------" >> ~/.bash_aliases
+#------------------------------------------------------------------------------\n\
+if [ -d '$HOME/.local/bin' ] ; then \n\
+   PATH='$HOME/.local/bin:$PATH' \n\
+fi " >> ~/.bash_aliases
 
 
 # Source profile and bashrc (this may not have an effect when run within the script, but it's kept for completeness)
